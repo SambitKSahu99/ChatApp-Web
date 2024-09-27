@@ -1,0 +1,110 @@
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.titlediv {
+    background-color: #1026c3;
+    color: #fff;
+    padding: 1px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px; 
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between title and button */
+    align-items: center; /* Center vertically */
+}
+.auth-links {
+    position: absolute;
+    top: 10px; /* Adjust positioning as needed */
+    right: 20px; /* Adjust positioning as needed */
+}
+
+.auth-links a {
+    
+    text-decoration: none;
+    color: white; /* Blue color for links */
+    font-size: 16px;
+}
+.auth-links a:hover {
+    text-decoration: underline;
+    cursor: pointer; /* Add underline on hover for emphasis */
+}
+/* Login container styling */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto; /* Center the container */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading inside login container */
+.login-container h1 {
+    font-size: 24px;
+    color: #1026c3;
+    margin-bottom: 20px;
+}
+
+/* Styling for form labels */
+.login-container label {
+    display: block;
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Styling for input fields */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Button styling for submit button */
+.login-container button {
+    background-color: #1026c3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #0c1e9d; /* Darker shade on hover */
+}
+
+/* Styling for links (optional: for "forgot password" or other actions) */
+.login-container a {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #1026c3;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/* Additional global styling */
+button:focus, input:focus {
+    outline: none;
+}

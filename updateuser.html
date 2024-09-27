@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="assets\css\register.css">
+</head>
+<body>
+    <div class="titlediv">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+                <h1 style="margin-left: 10px;">Chat App</h1>
+        </a>
+        <div class="auth-links" style="margin-top: 40px;">
+            <a onclick="logout()">Logout</a>
+        </div>
+    </div>
+    <div class="register-container">
+        <h1>Update User Information</h1>
+        <form id="registerForm">
+            <input type="hidden" id="actionType" value="update">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" required>
+            <button type="submit">Update</button> 
+            <!-- Error message area -->
+            <div id="errorMessage" class="error-message"></div>
+        </form>
+    </div>
+    <script src="assets/js/authcheck.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/updateButtonVisibility.js"></script>
+    <script src="assets/js/registration.js"></script>
+</body>
+</html>

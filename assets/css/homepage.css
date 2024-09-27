@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.titlediv {
+    background-color: #1026c3;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.auth-links a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    text-align: center;
+    margin-top: 40px;
+}
+.message-link-container {
+    text-align: center;  /* Center the link */
+    margin-top: 20px;    /* Add some space at the top */
+}
+
+/* Style for the message link */
+.message-link {
+    color: #007bff;            /* Blue color for the link */
+    text-decoration: underline; /* Underline the link */
+    font-size: 18px;            /* Font size */
+    font-weight: normal;        /* Normal weight for text */
+    cursor: pointer;            /* Show pointer cursor on hover */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Hover effect for the message link */
+.message-link:hover {
+    color: #0056b3;             /* Darker blue on hover */
+    text-decoration: underline;  /* Keep underline on hover */
+}

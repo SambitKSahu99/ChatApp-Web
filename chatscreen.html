@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="assets/css/chatscreen.css">
+</head>
+<body>
+    <div class="titlediv">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+                <h1 style="margin-left: 10px;">Chat App</h1>
+        </a>
+        <div class="auth-links" id="userMenu" style="display: none; margin-top: 40px;">
+            <div class="dropdown">
+                <span id="loggedInUsername" style="font-size: 18px; margin-right: 10px;"></span>
+                <!-- Hamburger icon as button -->
+                <button class="dropdown-button" id="hamburgerMenu">
+                    &#9776; <!-- This is the hamburger icon -->
+                </button>
+                <div class="dropdown-content" id="dropdownContent">
+                    <a onclick="logout()">Logout</a>
+                    <a href="updateuser.html">Edit User</a>
+                    <a onclick="deleteUser()">Delete User</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Left Pane: User List -->
+        <div class="user-list-pane">
+            <h2>Users</h2>
+            <ul id="user-list"></ul>
+        </div>
+
+        <!-- Right Pane: Chat Section -->
+        <div class="chat-pane">
+            <h2><span id="chatUserName" style="padding: 10px;"></span></h2>
+            <div id="chat-box">
+                <!-- Chat messages will appear here -->
+            </div>
+            <div class="input-container">
+                <textarea id="message-input" placeholder="Type your message"></textarea>
+                <button id="send-button">➤</button> <!-- Send arrow icon -->
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/authcheck.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/updateButtonVisibility.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/chatscreen.js"></script>
+</body>
+</html>
