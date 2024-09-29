@@ -38,6 +38,6 @@ jobs:
 
       - name: Deploy to Azure Container Apps
         run: |
-          az containerapp update --name chatapp-fe \
+          az containerapp update --name chatapp-webbrowser \
             --resource-group EXR-DEV-QA \
-            --image chatwebappcontainerregistry.azurecr.io/chatapp-webbrowser:${{ github.sha }}
+            --image chatwebappcontainerregistry.azurecr.io/chatapp-fe:${{ github.sha }}
