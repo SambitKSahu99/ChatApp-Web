@@ -69,11 +69,31 @@ function logout() {
 
     // If the user clicks "Yes" (confirmation is true), log them out
     if (confirmation) {
-        // Remove the JWT token from sessionStorage
-        sessionStorage.removeItem('jwtToken');
-        sessionStorage.removeItem('currentLoggedInuser')
-        // Redirect the user to the login page or homepage
-        window.location.href = 'login.html'; // Change to your actual login page
+        const url = config.authBaseUrl+config.logoutEndPoint;
+        const token = sessionStorage.getItem('jwtToken')
+        const username = sessionStorage.getItem('currentLoggedInuser')
+        fetch(url, {
+            method: 'POST', // Send a POST request to trigger logout
+            headers: {
+                'Authorization': `Bearer ${token}`, // Optionally send JWT token if required
+            },
+            body: JSON.stringify({ username })
+        })
+        .then(response => {
+            if (response.ok) {
+                // Clear session storage
+                sessionStorage.removeItem('jwtToken');
+                sessionStorage.removeItem('currentLoggedInuser');
+                // Redirect the user to the login page or homepage
+                window.location.href = 'login.html'; // Change to your actual login page
+            } else {
+                alert('Logout failed. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error during logout:', error);
+            alert('An error occurred while logging out. Please try again.');
+        });
     } else {
         // If the user clicks "No", do nothing
         alert('Logout canceled.');

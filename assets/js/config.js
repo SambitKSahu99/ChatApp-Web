@@ -4,6 +4,7 @@ const config = {
     messageBaseUrl: 'http://localhost:8083',
     messageEndPoint: '/message',
     loginEndpoint: '/login',
+    logoutEndPoint: '/logout',
     registerEndPoint: '/registerUser',
     updateUserEndPoint: '/updateUser',
     userEndPoint: '/user',
