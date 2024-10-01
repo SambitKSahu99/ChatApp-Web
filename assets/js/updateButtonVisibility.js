@@ -23,8 +23,7 @@ function logout() {
         .then(response => {
             if (response.ok) {
                 // Clear session storage
-                sessionStorage.removeItem('jwtToken');
-                sessionStorage.removeItem('currentLoggedInuser');
+                sessionStorage.clear()
                 // Redirect the user to the login page or homepage
                 window.location.href = 'login.html'; // Change to your actual login page
             } else {
@@ -90,7 +89,7 @@ function deleteAccount() {
     .then(response => {
         if (response.ok) {
             alert('Account deleted successfully. Logging out...');
-            sessionStorage.removeItem('jwtToken');// Remove token from sessionStorage
+            sessionStorage.clear()// Remove token from sessionStorage
             window.location.href = 'login.html'; // Redirect to login page
         } else {
             alert('Failed to delete account. Please try again.');

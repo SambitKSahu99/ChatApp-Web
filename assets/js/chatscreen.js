@@ -1,7 +1,7 @@
 
 let messageArr = [];
 const loggedInUser = sessionStorage.getItem('currentLoggedInuser');
-function populateUserList() {
+async function populateUserList() {
     const userList = document.getElementById('user-list');
     userList.innerHTML = '';
     const token = sessionStorage.getItem('jwtToken'); // Assuming the token is stored in sessionStorage
@@ -23,7 +23,7 @@ function populateUserList() {
         });
     })
     .catch(error => {
-        console.error('Error fetching user list:', error);
+        alert('Error fetching user list:', error);
     });
 }
 
@@ -43,7 +43,7 @@ async function fetchMessages() {
             return response.json();
         } else if (response.status === 403) {
             const errorData = await response.json();
-            sessionStorage.removeItem('jwtToken'); 
+            sessionStorage.clear()
             throw new Error(errorData.response || 'Forbidden');
         } else {
             const errorData = await response.json();
@@ -52,7 +52,6 @@ async function fetchMessages() {
     })
     .then(messages => {
         messageArr = messages.response; 
-        // Store the retrieved messages in the messageArr
     })
     .catch(error => {
         console.log(error)
@@ -61,22 +60,20 @@ async function fetchMessages() {
 
 // Handle when a username is clicked
 let currentChatUser = ''; // Store the user you're chatting with
-function handleUserClick(username) {
+async function handleUserClick(username) {
     currentChatUser = username;  // Update the current chat user
     document.getElementById('chatUserName').textContent = username;
     console.log(`Start chat with ${username}`);
-    console.log('Hii '+loggedInUser)
     fetchMessages().then(() => { const filteredMessages = messageArr.filter(msg =>
         (msg.senderUserName === loggedInUser && msg.receiverUserName === username) ||
         (msg.senderUserName === username && msg.receiverUserName === loggedInUser)
     );
-    console.log(filteredMessages)
     let sortedMessagesAr = filteredMessages.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
     populateChatMessages(sortedMessagesAr);
     }); // Clear chat box for new user
 }
 
-function populateChatMessages(sortedMessagesAr) {
+async function populateChatMessages(sortedMessagesAr) {
     const chatBox = document.getElementById('chat-box');
     chatBox.innerHTML = ''; // Clear chat box before populating
     sortedMessagesAr.reverse();
@@ -87,8 +84,7 @@ function populateChatMessages(sortedMessagesAr) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Function to append messages to the chat box
-function appendMessageToChat(message, senderType, timestamp) {
+async function appendMessageToChat(message, senderType, timestamp) {
     const chatBox = document.getElementById('chat-box');
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message');
@@ -110,7 +106,7 @@ document.getElementById('send-button').addEventListener('click', function() {
     }
 });
 
-function sendMessageToServer(message, receiver) {
+async function sendMessageToServer(message, receiver) {
     const token = sessionStorage.getItem('jwtToken');
     // Validate the message and receiver
     if (!message || !receiver) {
@@ -126,24 +122,21 @@ function sendMessageToServer(message, receiver) {
         },
         body: JSON.stringify({ message: message, receiverUserName: receiver })
     })
-    .then(response => {
+    .then(async response => {
         if (response.ok) {
             return response.json();
         } else if (response.status === 403) {
-            return response.json().then(errorData => {
-                sessionStorage.removeItem('jwtToken'); 
-                throw new Error(errorData.response || 'Forbidden');
-            });
+            const errorData = await response.json();
+            sessionStorage.clear()
+            throw new Error(errorData.response || 'Forbidden');
         } else {
             throw new Error('An error occurred.');
         }
     })
     .then(data => {
-        console.log('Message sent:', data.response);
-        // Optionally, handle the server's response (e.g., display a confirmation)
+        console.log(data.response);
     })
     .catch(error => {
-        // Handle any errors (including 403 Forbidden)
         alert('Error: ' + error.message);
     });
 }
