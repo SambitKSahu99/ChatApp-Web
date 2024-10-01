@@ -85,8 +85,7 @@ function registerOrUpdateUser(username, password,action) {
         })
         .then(data => {
             alert(data.response+' updated successfully, You need to login again');
-            sessionStorage.removeItem('jwtToken')
-            sessionStorage.removeItem('currentLoggedInuser')
+            sessionStorage.clear()
             window.location.href = 'login.html'; // Redirect to login page after registration      
         })
         .catch(error => {
