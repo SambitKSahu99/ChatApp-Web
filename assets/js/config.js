@@ -1,7 +1,7 @@
 const config = {
-    userBaseUrl: 'https://chatapp-userservice.orangecoast-52406e6a.southindia.azurecontainerapps.io',
-    authBaseUrl: 'https://chatapp-authservice.orangecoast-52406e6a.southindia.azurecontainerapps.io',
-    messageBaseUrl: 'https://chatapp-messageservice.greengrass-40e110cf.southindia.azurecontainerapps.io',
+    // userBaseUrl: 'https://chatapp-userservice.orangecoast-52406e6a.southindia.azurecontainerapps.io',
+    // authBaseUrl: 'https://chatapp-authservice.orangecoast-52406e6a.southindia.azurecontainerapps.io',
+    // messageBaseUrl: 'https://chatapp-messageservice.greengrass-40e110cf.southindia.azurecontainerapps.io',
     messageEndPoint: '/message',
     loginEndpoint: '/login',
     logoutEndPoint: '/logout',
@@ -9,7 +9,8 @@ const config = {
     updateUserEndPoint: '/updateUser',
     userEndPoint: '/user',
     verifyTokenEndPoint: '/verifyToken',
-    // userBaseUrl: 'http://localhost:8081',
-    // authBaseUrl: 'http://localhost:8082',
-    // messageBaseUrl: 'http://localhost:8083',
+    getCurrentUserDetailsEndPoint: '/currentUser/',
+    userBaseUrl: 'http://localhost:8081',
+    authBaseUrl: 'http://localhost:8082',
+    messageBaseUrl: 'http://localhost:8083',
 }
