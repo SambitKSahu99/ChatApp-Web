@@ -29,16 +29,17 @@
     <div class="register-container">
         <h1>Register</h1>
         <form id="registerForm">
-            <input type="hidden" id="actionType" value="register">
             <label for="username">Username:</label>
             <input type="text" id="username" required>
-
+            <label for="firstName">FirstName:</label>
+            <input type="text" id="firstName" required>
+            <label for="lastName">LastName:</label>
+            <input type="text" id="lastName" required>
             <label for="password">Password:</label>
             <input type="password" id="password" required>
-
             <label for="confirmPassword">Confirm Password:</label>
             <input type="password" id="confirmPassword" required>
-            <button type="submit" onclick="registerUserButton()">Register</button> 
+            <button type="submit">Register</button> 
             <!-- Error message area -->
             <div id="errorMessage" class="error-message"></div>
         </form>
